@@ -6,11 +6,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.kata.SecuritiApp.models.User;
+import ru.kata.SecuritiApp.model.User;
 import ru.kata.SecuritiApp.repository.RoleRepositoy;
 import ru.kata.SecuritiApp.repository.UserRepository;
 
@@ -19,17 +18,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional(readOnly = true)
 public class UserServiceImp implements UserService, UserDetailsService {
 
 
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    RoleRepositoy roleRepository;
+    private final RoleRepositoy roleRepository;
 
-    BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
+
     public UserServiceImp(UserRepository userRepository, RoleRepositoy roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;

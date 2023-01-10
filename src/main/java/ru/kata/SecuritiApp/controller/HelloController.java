@@ -1,4 +1,4 @@
-package ru.kata.SecuritiApp.controllers;
+package ru.kata.SecuritiApp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -2,7 +2,7 @@ package ru.kata.SecuritiApp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.kata.SecuritiApp.models.Role;
+import ru.kata.SecuritiApp.model.Role;
 import ru.kata.SecuritiApp.repository.RoleRepositoy;
 
 import java.util.List;
@@ -12,7 +12,7 @@ public class RoleServiceImp implements RoleService{
 
     private final RoleRepositoy roleRepositoy;
 
-    @Autowired
+
     public RoleServiceImp(RoleRepositoy roleRepositoy) {
         this.roleRepositoy = roleRepositoy;
     }

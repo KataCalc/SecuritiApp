@@ -1,6 +1,6 @@
 package ru.kata.SecuritiApp.service;
 
-import ru.kata.SecuritiApp.models.Role;
+import ru.kata.SecuritiApp.model.Role;
 
 import java.util.List;
 

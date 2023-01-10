@@ -2,7 +2,7 @@ package ru.kata.SecuritiApp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import ru.kata.SecuritiApp.models.User;
+import ru.kata.SecuritiApp.model.User;
 
 import java.util.Optional;
 

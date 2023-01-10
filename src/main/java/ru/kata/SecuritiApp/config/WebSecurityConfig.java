@@ -1,6 +1,6 @@
 package ru.kata.SecuritiApp.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -18,13 +17,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final SuccessUserHandler successUserHandler;
 
-@Autowired
-@Lazy
+
     public WebSecurityConfig(SuccessUserHandler successUserHandler) {
         this.successUserHandler = successUserHandler;
     }
-
-
 
 
     @Override
@@ -32,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**").hasAnyRole("USER","ADMIN")
+                .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -40,8 +36,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().successHandler(successUserHandler)
                 .permitAll()
                 .and()
-               .logout()
-               .permitAll();
+                .logout()
+                .permitAll();
     }
 
     @Bean
@@ -69,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 //***********************************************
-    // аутентификация inMemory
+// аутентификация inMemory
 //    @Bean
 //    @Override
 //    public UserDetailsService userDetailsService() {
@@ -83,7 +79,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        return new InMemoryUserDetailsManager(user);
 //    }
 //********************************************************************
-    //jdbcAuthentication
+//jdbcAuthentication
 //    @Bean
 //    public JdbcUserDetailsManager users(DataSource dataSource) {
 //        UserDetails user = User.builder()
@@ -96,7 +92,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .password("{bcrypt}$2y$10$GnmZ2829KpXBJru4v5HfkOXi9DVJtAdYNgl2TJPLrmur1Qo6wI1SW")
 //                .roles("ADMIN", "USER")
 //                .build();
- //       JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+//       JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
 
 //        if (jdbcUserDetailsManager.userExists(user.getUsername())) {
 //            jdbcUserDetailsManager.deleteUser(user.getUsername());
@@ -124,7 +120,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //}
 
 //*************************************************************************************
-    //настройка на свою форму для логина
+//настройка на свою форму для логина
 //    @Override
 //    protected void configure(HttpSecurity http)throws Exception{
 //    //конфигурируем сам Spring Security

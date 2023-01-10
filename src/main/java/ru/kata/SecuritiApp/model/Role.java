@@ -1,4 +1,4 @@
-package ru.kata.SecuritiApp.models;
+package ru.kata.SecuritiApp.model;
 
 
 import org.springframework.security.core.GrantedAuthority;

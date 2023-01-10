@@ -6,7 +6,7 @@ package ru.kata.SecuritiApp.service;
 
 
 
-import ru.kata.SecuritiApp.models.User;
+import ru.kata.SecuritiApp.model.User;
 
 import java.util.List;
 
